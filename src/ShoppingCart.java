@@ -11,13 +11,20 @@ class ShoppingCart {
         productMap.put("01003", new Item("01003", "Carrot", 1.66));
     }
 
-    void addItemToLIst(String barcode) {
+    void addItemToList(String barcode) {
 
         if (itemsInCart.containsKey(barcode)) {
             itemsInCart.replace(barcode, itemsInCart.get(barcode) + 1);
         } else {
             itemsInCart.put(barcode, 1);
         }
+    }
+
+    int getItemCount(String barcode){
+        if(itemsInCart.containsKey(barcode)){
+            return itemsInCart.get(barcode);
+        }
+        return 0;
     }
 
     // it will remove only one item, example if there are 3 banana then it will
@@ -68,12 +75,12 @@ class ShoppingCart {
 
         ShoppingCart shoppingCart = new ShoppingCart();
 
-        shoppingCart.addItemToLIst("01001");
-        shoppingCart.addItemToLIst("01001");
-        shoppingCart.addItemToLIst("01002");
-        shoppingCart.addItemToLIst("01003");
-        shoppingCart.addItemToLIst("01003");
-        shoppingCart.addItemToLIst("01003");
+        shoppingCart.addItemToList("01001");
+        shoppingCart.addItemToList("01001");
+        shoppingCart.addItemToList("01002");
+        shoppingCart.addItemToList("01003");
+        shoppingCart.addItemToList("01003");
+        shoppingCart.addItemToList("01003");
 
         shoppingCart.printCart();
     }
